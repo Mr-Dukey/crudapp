@@ -76,7 +76,7 @@ export default function FileUploadForm() {
             .catch(err => console.error(err));
     }
     return (
-        <div className='container w-50'>
+        <div className='container w-75'>
             <Link className='btn btn-danger' to={'/home'}>Home</Link>
 
             <form>
@@ -94,7 +94,7 @@ export default function FileUploadForm() {
                         <textarea type="text" name="" onChange={(e) => setSublines(e.target.value)} id="" className="form-control h-100" />
                     </div>
                 </div>
-                <button onClick={HandleAddPhoto} className='btn btn-dark mt-5 w-sm-25 col-12'>Add Image</button>
+                <button onClick={HandleAddPhoto} className='btn btn-dark mt-5 w-50 col-12'>Add Image</button>
             </form>
 
             <table className='table'>
