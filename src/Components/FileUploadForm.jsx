@@ -17,7 +17,7 @@ export default function FileUploadForm() {
     function HandleAddPhoto(e) {
         e.preventDefault();
 
-        axios.post('https://0.0.0.0:1200/uploadimg', formData, {
+        axios.post('https:/54.187.200.255:1200/uploadimg', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -31,7 +31,7 @@ export default function FileUploadForm() {
     // to get banner image
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
-        axios.get('https://0.0.0.0:1200/getfiles')
+        axios.get('https://54.187.200.255:1200/getfiles')
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -43,7 +43,7 @@ export default function FileUploadForm() {
     function setUpdate(id) {
         setupdateId(id)
         console.log(updateId);
-        axios.get('https://0.0.0.0:1200/getfiles/' + id)
+        axios.get('https://54.187.200.255:1200/getfiles/' + id)
 
             .then(res => {
                 setTitle(res.data.title)
@@ -57,7 +57,7 @@ export default function FileUploadForm() {
     function HandleUpdate(e) {
         e.preventDefault();
 
-        axios.put(`https://0.0.0.0:1200/update/${updateId}`,formData)
+        axios.put(`https://54.187.200.255:1200/update/${updateId}`,formData)
             .then(() => {
                 console.log('Updated');
                 window.location.reload()
@@ -69,7 +69,7 @@ export default function FileUploadForm() {
 
     //  to delete an Banner
     function HandleDelete(id) {
-        axios.delete('http://localhost:1200/delete/' + id)
+        axios.delete('http://54.187.200.255:1200/delete/' + id)
             .then(()=>{
                 window.location.reload();
             })
@@ -112,7 +112,7 @@ export default function FileUploadForm() {
                                 <tr>
                                     <td>{index + 1}</td>
                                     <td>
-                                        <img src={`http://localhost:1200/upload/${items.BannerImage}`} width={200} height={100} alt="" />
+                                        <img src={`http://54.187.200.255:1200/upload/${items.BannerImage}`} width={200} height={100} alt="" />
                                     </td>
                                     <td>
                                         {/* update button */}
