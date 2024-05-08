@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function FileUploadForm() {
 
-
-
     const [title, setTitle] = useState('');
     const [sublines, setSublines] = useState('');
     const [image, setImage] = useState(null);
@@ -18,7 +16,6 @@ export default function FileUploadForm() {
     // to add a new banner image
     function HandleAddPhoto(e) {
         e.preventDefault();
-
 
         axios.post('https://0.0.0.0:1200/uploadimg', formData, {
             headers: {
@@ -34,13 +31,7 @@ export default function FileUploadForm() {
     // to get banner image
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
-
         axios.get('https://0.0.0.0:1200/getfiles')
-
-        axios.get('https://0.0.0.0:1200/getfiles')
-
-        axios.get('http://localhost:1200/getfiles')
-
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -67,7 +58,6 @@ export default function FileUploadForm() {
         e.preventDefault();
 
         axios.put(`https://0.0.0.0:1200/update/${updateId}`,formData)
-
             .then(() => {
                 console.log('Updated');
                 window.location.reload()
@@ -80,7 +70,6 @@ export default function FileUploadForm() {
     //  to delete an Banner
     function HandleDelete(id) {
         axios.delete('http://localhost:1200/delete/' + id)
-
             .then(()=>{
                 window.location.reload();
             })
@@ -92,20 +81,20 @@ export default function FileUploadForm() {
 
             <form>
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-sm-6">
                         <label htmlFor="" className="form-lable">Title</label>
                         <input type="text" name="" onChange={(e) => setTitle(e.target.value)} id="" className="form-control" />
                     </div>
-                    <div className="col-6">
+                    <div className="col-sm-6">
                         <label htmlFor="" className="form-lable">Image</label>
                         <input type="file" accept='image/*' name="" onChange={(e) => setImage(e.target.files[0])} id="" className="form-control" />
                     </div>
                     <div className="col-12">
-                        <label htmlFor="" className="form-lable">Image</label>
+                        <label htmlFor="" className="form-lable">Description</label>
                         <textarea type="text" name="" onChange={(e) => setSublines(e.target.value)} id="" className="form-control h-100" />
                     </div>
                 </div>
-                <button onClick={HandleAddPhoto} className='btn btn-dark mt-5 w-25 col-12'>Add Image</button>
+                <button onClick={HandleAddPhoto} className='btn btn-dark mt-5 w-sm-25 col-12'>Add Image</button>
             </form>
 
             <table className='table'>
