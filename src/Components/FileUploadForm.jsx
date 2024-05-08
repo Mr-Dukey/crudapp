@@ -19,7 +19,11 @@ export default function FileUploadForm() {
     function HandleAddPhoto(e) {
         e.preventDefault();
 
+<<<<<<< HEAD
         axios.post('https://0.0.0.0:1200/uploadimg', formData, {
+=======
+        axios.post('http://localhost:1200/uploadimg', formData, {
+>>>>>>> a87c04583f7d5c956bc5bd1289ec5d80ec0faf0a
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -33,7 +37,11 @@ export default function FileUploadForm() {
     // to get banner image
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
+<<<<<<< HEAD
         axios.get('https://0.0.0.0:1200/getfiles')
+=======
+        axios.get('http://localhost:1200/getfiles')
+>>>>>>> a87c04583f7d5c956bc5bd1289ec5d80ec0faf0a
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -45,7 +53,11 @@ export default function FileUploadForm() {
     function setUpdate(id) {
         setupdateId(id)
         console.log(updateId);
+<<<<<<< HEAD
         axios.get('https://0.0.0.0:1200/getfiles/' + id)
+=======
+        axios.get('http://localhost:1200/getfiles/' + id)
+>>>>>>> a87c04583f7d5c956bc5bd1289ec5d80ec0faf0a
             .then(res => {
                 setTitle(res.data.title)
                 setSublines(res.data.sublines)
@@ -57,17 +69,28 @@ export default function FileUploadForm() {
     // to update Banner
     function HandleUpdate(e) {
         e.preventDefault();
+<<<<<<< HEAD
         axios.put(`https://0.0.0.0:1200/update/${updateId}`,formData)
+=======
+        axios.put(`http://localhost:1200/update/${updateId}`,formData)
+>>>>>>> a87c04583f7d5c956bc5bd1289ec5d80ec0faf0a
             .then(() => {
                 console.log('Updated');
                 window.location.reload()
             })
             .catch(err => console.error("error :" + err));
     }
+<<<<<<< HEAD
 
     //  to delete an Banner
     function HandleDelete(id) {
         axios.delete('https://0.0.0.0:1200/delete/' + id)
+=======
+``
+    //  to delete an Banner
+    function HandleDelete(id) {
+        axios.delete('http://localhost:1200/delete/' + id)
+>>>>>>> a87c04583f7d5c956bc5bd1289ec5d80ec0faf0a
             .then(()=>{
                 window.location.reload();
             })
