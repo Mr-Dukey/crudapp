@@ -19,6 +19,7 @@ export default function FileUploadForm() {
     function HandleAddPhoto(e) {
         e.preventDefault();
 
+
         axios.post('https://0.0.0.0:1200/uploadimg', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -33,7 +34,13 @@ export default function FileUploadForm() {
     // to get banner image
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
+
         axios.get('https://0.0.0.0:1200/getfiles')
+
+        axios.get('https://0.0.0.0:1200/getfiles')
+
+        axios.get('http://localhost:1200/getfiles')
+
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -46,6 +53,7 @@ export default function FileUploadForm() {
         setupdateId(id)
         console.log(updateId);
         axios.get('https://0.0.0.0:1200/getfiles/' + id)
+
             .then(res => {
                 setTitle(res.data.title)
                 setSublines(res.data.sublines)
@@ -57,7 +65,9 @@ export default function FileUploadForm() {
     // to update Banner
     function HandleUpdate(e) {
         e.preventDefault();
+
         axios.put(`https://0.0.0.0:1200/update/${updateId}`,formData)
+
             .then(() => {
                 console.log('Updated');
                 window.location.reload()
@@ -65,9 +75,12 @@ export default function FileUploadForm() {
             .catch(err => console.error("error :" + err));
     }
 
+
+
     //  to delete an Banner
     function HandleDelete(id) {
-        axios.delete('https://0.0.0.0:1200/delete/' + id)
+        axios.delete('http://localhost:1200/delete/' + id)
+
             .then(()=>{
                 window.location.reload();
             })
