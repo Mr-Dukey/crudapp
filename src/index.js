@@ -10,7 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 378bb0024b2f0585c4552fcf917922b93ef000a2
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
