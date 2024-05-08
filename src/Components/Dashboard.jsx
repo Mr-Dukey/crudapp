@@ -7,7 +7,7 @@ export default function Dashboard() {
     const [img, setImg] = useState([]);
 
     useEffect(() => {
-        axios.get('https://0.0.0.0:1200/getfiles')
+        axios.get('https://54.187.200.255:1200/getfiles')
             .then((res) => {
                 setImg(res.data)
             })
@@ -26,7 +26,7 @@ export default function Dashboard() {
                     img.map((items) => {
                         return (
                             <Carousel.Item interval={1500}>
-                                <img src={`https://0.0.0.0:1200/upload/${items.BannerImage}`} style={{ width: '100%', height: '700px' }} alt="" />
+                                <img src={`https://54.187.200.255:1200/upload/${items.BannerImage}`} style={{ width: '100%', height: '700px' }} alt="" />
                                 <Carousel.Caption>
                                     <h3>{items.title}</h3>
                                     <p>{items.sublines}</p>
