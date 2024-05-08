@@ -20,7 +20,7 @@ export default function FileUploadForm() {
         e.preventDefault();
 
 
-        axios.post('https://0.0.0.0:1200/uploadimg', formData, {
+        axios.post('https://crudserver-cted.onrender.com/uploadimg', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -35,12 +35,7 @@ export default function FileUploadForm() {
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
 
-        axios.get('https://0.0.0.0:1200/getfiles')
-
-        axios.get('https://0.0.0.0:1200/getfiles')
-
-        axios.get('http://localhost:1200/getfiles')
-
+        axios.get('https://crudserver-cted.onrender.com/getfiles')
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -52,7 +47,7 @@ export default function FileUploadForm() {
     function setUpdate(id) {
         setupdateId(id)
         console.log(updateId);
-        axios.get('https://0.0.0.0:1200/getfiles/' + id)
+        axios.get('https://crudserver-cted.onrender.com/getfiles/' + id)
 
             .then(res => {
                 setTitle(res.data.title)
@@ -66,7 +61,7 @@ export default function FileUploadForm() {
     function HandleUpdate(e) {
         e.preventDefault();
 
-        axios.put(`https://0.0.0.0:1200/update/${updateId}`,formData)
+        axios.put(`https://crudserver-cted.onrender.com/${updateId}`,formData)
 
             .then(() => {
                 console.log('Updated');
@@ -79,7 +74,7 @@ export default function FileUploadForm() {
 
     //  to delete an Banner
     function HandleDelete(id) {
-        axios.delete('http://localhost:1200/delete/' + id)
+        axios.delete('https://crudserver-cted.onrender.com/delete/' + id)
 
             .then(()=>{
                 window.location.reload();
@@ -123,7 +118,7 @@ export default function FileUploadForm() {
                                 <tr>
                                     <td>{index + 1}</td>
                                     <td>
-                                        <img src={`http://localhost:1200/upload/${items.BannerImage}`} width={200} height={100} alt="" />
+                                        <img src={`https://crudserver-cted.onrender.com/upload/${items.BannerImage}`} width={200} height={100} alt="" />
                                     </td>
                                     <td>
                                         {/* update button */}
