@@ -18,9 +18,7 @@ export default function FileUploadForm() {
     // to add a new banner image
     function HandleAddPhoto(e) {
         e.preventDefault();
-
-
-        axios.post('https://crudserver-cted.onrender.com/uploadimg', formData, {
+        axios.post('http://localhost:1200/uploadimg', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -35,7 +33,7 @@ export default function FileUploadForm() {
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
 
-        axios.get('https://crudserver-cted.onrender.com/getfiles')
+        axios.get('http://localhost:1200/getfiles')
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -47,7 +45,7 @@ export default function FileUploadForm() {
     function setUpdate(id) {
         setupdateId(id)
         console.log(updateId);
-        axios.get('https://crudserver-cted.onrender.com/getfiles/' + id)
+        axios.get('http://localhost:1200/getfiles/' + id)
 
             .then(res => {
                 setTitle(res.data.title)
@@ -61,7 +59,7 @@ export default function FileUploadForm() {
     function HandleUpdate(e) {
         e.preventDefault();
 
-        axios.put(`https://crudserver-cted.onrender.com/${updateId}`,formData)
+        axios.put(`http://localhost:1200/${updateId}`,formData)
 
             .then(() => {
                 console.log('Updated');
@@ -74,7 +72,7 @@ export default function FileUploadForm() {
 
     //  to delete an Banner
     function HandleDelete(id) {
-        axios.delete('https://crudserver-cted.onrender.com/delete/' + id)
+        axios.delete('http://localhost:1200/delete/' + id)
 
             .then(()=>{
                 window.location.reload();
@@ -118,7 +116,7 @@ export default function FileUploadForm() {
                                 <tr>
                                     <td>{index + 1}</td>
                                     <td>
-                                        <img src={`https://crudserver-cted.onrender.com/upload/${items.BannerImage}`} width={200} height={100} alt="" />
+                                        <img src={`http://localhost:1200/${items.BannerImage}`} width={200} height={100} alt="" />
                                     </td>
                                     <td>
                                         {/* update button */}
