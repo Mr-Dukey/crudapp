@@ -116,7 +116,7 @@ export default function FileUploadForm() {
                                 <tr>
                                     <td>{index + 1}</td>
                                     <td>
-                                        <img src={`http://localhost:1200/${items.BannerImage}`} width={200} height={100} alt="" />
+                                        <img src={`https://crudserver-b9yx.onrender.com/${items.BannerImage}`} width={200} height={100} alt="" />
                                     </td>
                                     <td>
                                         {/* update button */}
