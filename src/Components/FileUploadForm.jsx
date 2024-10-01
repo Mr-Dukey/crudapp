@@ -18,7 +18,7 @@ export default function FileUploadForm() {
     // to add a new banner image
     function HandleAddPhoto(e) {
         e.preventDefault();
-        axios.post('http://localhost:1200/uploadimg', formData, {
+        axios.post(`https://crudserver-b9yx.onrender.com/uploadimg`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -33,7 +33,7 @@ export default function FileUploadForm() {
     const [imgdata, setImgdata] = useState([]);
     useEffect(() => {
 
-        axios.get('http://localhost:1200/getfiles')
+        axios.get(`https://crudserver-b9yx.onrender.com/getfiles`)
             .then((res) => {
                 setImgdata(res.data)
             })
@@ -45,7 +45,7 @@ export default function FileUploadForm() {
     function setUpdate(id) {
         setupdateId(id)
         console.log(updateId);
-        axios.get('http://localhost:1200/getfiles/' + id)
+        axios.get(`https://crudserver-b9yx.onrender.com/getfiles/${id}`)
 
             .then(res => {
                 setTitle(res.data.title)
@@ -59,7 +59,7 @@ export default function FileUploadForm() {
     function HandleUpdate(e) {
         e.preventDefault();
 
-        axios.put(`http://localhost:1200/${updateId}`,formData)
+        axios.put(`https://crudserver-b9yx.onrender.com/update/${updateId}`,formData)
 
             .then(() => {
                 console.log('Updated');
@@ -72,7 +72,7 @@ export default function FileUploadForm() {
 
     //  to delete an Banner
     function HandleDelete(id) {
-        axios.delete('http://localhost:1200/delete/' + id)
+        axios.delete(`https://crudserver-b9yx.onrender.com/delete/${id}`)
 
             .then(()=>{
                 window.location.reload();

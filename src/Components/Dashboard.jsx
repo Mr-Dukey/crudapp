@@ -7,7 +7,7 @@ export default function Dashboard() {
     const [img, setImg] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:1200/getfiles')
+        axios.get('https://crudserver-b9yx.onrender.com/getfiles')
             .then((res) => {
                 setImg(res.data)
             })
@@ -27,7 +27,7 @@ export default function Dashboard() {
                         return (
                             <Carousel.Item interval={1500}>
 
-                                <img src={`http://localhost:1200/upload/${items.BannerImage}`} style={{ width: '100%', height: '700px' }} alt="" />
+                                <img src={`https://crudserver-b9yx.onrender.com/upload/${items.BannerImage}`} style={{ width: '100%', height: '700px' }} alt="" />
 
                                 <Carousel.Caption>
                                     <h3>{items.title}</h3>
